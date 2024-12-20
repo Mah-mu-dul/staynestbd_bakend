@@ -176,6 +176,7 @@ async function watchSensorDataCollection() {
 }
 
 // Call the watch function
+
 watchSensorDataCollection();
 
 // Create an HTTP server
