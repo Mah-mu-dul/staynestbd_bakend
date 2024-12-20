@@ -184,20 +184,6 @@ const server = http.createServer(app);
 const io = new Server(server);
 
 // Start the server
-server.listen(PORT, "0.0.0.0", () => {
-  const networkInterfaces = os.networkInterfaces();
-  let ipAddress = "";
-
-  // Loop through network interfaces to find the first non-internal IPv4 address
-  for (const interfaceName in networkInterfaces) {
-    for (const net of networkInterfaces[interfaceName]) {
-      if (net.family === "IPv4" && !net.internal) {
-        ipAddress = net.address;
-        break;
-      }
-    }
-    if (ipAddress) break; // Exit the loop if an IP address is found
-  }
-
-  console.log(`Server is running on http://${ipAddress}:${PORT}`);
+server.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
